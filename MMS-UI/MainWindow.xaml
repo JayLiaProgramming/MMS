@@ -1,0 +1,34 @@
+﻿<Window x:Class="MMS_UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MMS_UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="console" IsReadOnly="true" Text="{Binding ConsoleData}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Row="0" Grid.ColumnSpan="3" Height="1" Fill="Black"/>
+            <TextBox Grid.Row="1" KeyUp="TextBox_KeyUp"/>
+            <TextBlock Grid.Row="1" Grid.Column="1">
+                <Run Text="Status: "/>
+                <Run Text="{Binding Status}"/>
+            </TextBlock>
+            <Button Grid.Row="1" Grid.Column="3" Content="Pause Program" Click="PauseProgram_Click"/>
+        </Grid>
+    </Grid>
+</Window>
